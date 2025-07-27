@@ -1,3 +1,5 @@
+#define UNICODE
+#include <winsock2.h> // must precede windows.h on Windows
 #include <windows.h>
 #include <wrl.h>
 #include <d3d12.h>
@@ -55,6 +57,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nCmdShow) {
 
     hydra::UIManager ui;
     ui.initialize();
+    hydra::NetworkClient net;
     hydra::TaskManager tasks;
 
     // Simple game state setup
@@ -69,7 +72,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nCmdShow) {
     hydra::World world;
     world.addPlayer(player);
 
-    hydra::NetworkClient net;
     tasks.startTask([&net](){
         net.connect("127.0.0.1", 7000); // placeholder connection
     });
