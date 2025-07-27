@@ -18,5 +18,5 @@ add_executable(HydraMMORPG ${SOURCES})
 
 # Link DirectX libraries
 if (WIN32)
-    target_link_libraries(HydraMMORPG d3d12 dxgi dxguid)
+    target_link_libraries(HydraMMORPG d3d12 dxgi dxguid ws2_32)
 endif()
