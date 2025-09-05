@@ -11,6 +11,7 @@ HydraProject aims to become a 3D massively multiplayer online role‑playing gam
 * Basic networking skeleton using WinSock
 * Player and world classes with simple leveling logic
 * Quest system prototype with time‑travel hooks
+* Simple health and combat system for players and NPCs
 
 ## Game vision
 
