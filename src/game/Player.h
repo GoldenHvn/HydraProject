@@ -6,14 +6,17 @@
 
 namespace hydra {
 
+class NPC; // forward declaration
+
 class Player : public Entity {
 public:
-    Player(const std::string& name);
+    Player(const std::string& name, int health = 100);
 
     int getLevel() const;
     int getExperience() const;
 
     void gainExperience(int amount);
+    void attack(NPC& target);
 
 private:
     int m_level;

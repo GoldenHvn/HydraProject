@@ -87,10 +87,15 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nCmdShow) {
 
         world.update();
 
-        // Example gameplay hook: NPC mood could change based on player actions
+        // Example gameplay hook: basic combat and mood changes
         auto npc = game.findNPC("Guardian");
-        if (npc)
+        if (npc) {
             npc->adjustMood(1); // placeholder for actual interaction logic
+            player.attack(*npc);
+            npc->attack(player);
+            if (!player.isAlive())
+                PostQuitMessage(0);
+        }
 
         auto quest = game.getCurrentQuest();
         if (quest && !quest->isCompleted()) {

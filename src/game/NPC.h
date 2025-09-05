@@ -6,6 +6,7 @@
 
 namespace hydra {
 
+class Player; // forward declaration
 enum class Mood {
     Neutral,
     Happy,
@@ -14,11 +15,12 @@ enum class Mood {
 
 class NPC : public Entity {
 public:
-    NPC(const std::string& name);
+    NPC(const std::string& name, int health = 100);
 
     Mood getMood() const;
 
     void adjustMood(int delta);
+    void attack(Player& target);
 
 private:
     int m_moodValue; // simple mood scale
